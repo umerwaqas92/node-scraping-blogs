@@ -1,0 +1,1629 @@
+{
+  "timestamp": "2025-06-05T11:31:46.713Z",
+  "total_urls": 167,
+  "blog_urls_count": 103,
+  "all_urls": [
+    {
+      "url": "https://www.firecrawl.dev/",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/pricing",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/playground",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/smart-crawl",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/extract",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "daily",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/changelog",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/Build-a-Full-Stack-AI-Web-App-in-12-Minutes",
+      "lastmod": "2024-09-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/How-to-Create-an-llms-txt-File-for-Any-Website",
+      "lastmod": "2024-11-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/How-to-Talk-with-Any-Website-Using-OpenAIs-Realtime-API-and-Firecrawl",
+      "lastmod": "2024-10-11T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025",
+      "lastmod": "2025-04-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/ai-powered-web-scraping-solutions-2025",
+      "lastmod": "2025-03-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/an-adventure-in-scaling",
+      "lastmod": "2024-09-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-price-tracking-tutorial-python",
+      "lastmod": "2024-12-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-web-scraping-free-2025",
+      "lastmod": "2024-12-05T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-data-collection-guide",
+      "lastmod": "2025-02-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/browser-automation-tools-comparison-2025",
+      "lastmod": "2025-04-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/beautifulsoup4-vs-scrapy-comparison",
+      "lastmod": "2024-12-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/building-knowledge-graphs-from-web-data-camelai-firecrawl",
+      "lastmod": "2024-08-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/web-scraping-change-detection-with-firecrawl",
+      "lastmod": "2025-05-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/client-relationship-tree-visualization-in-python",
+      "lastmod": "2025-03-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/cloudflare-error-1015-how-to-solve-it",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-competitor-price-scraping",
+      "lastmod": "2025-01-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/complete-guide-to-curl-authentication-firecrawl-api",
+      "lastmod": "2024-12-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/contradiction-agent",
+      "lastmod": "2024-05-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crawlbench-llm-extraction",
+      "lastmod": "2024-12-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crewai-multi-agent-systems-tutorial",
+      "lastmod": "2025-05-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crunchbase-scraping-with-firecrawl-claude",
+      "lastmod": "2025-01-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/custom-instruction-datasets-llm-fine-tuning",
+      "lastmod": "2025-02-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-athena-intelligence-empowers-analysts-with-firecrawl",
+      "lastmod": "2024-09-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-botpress-enhances-knowledge-base-creation-with-firecrawl",
+      "lastmod": "2025-04-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-cargo-empowers-gtm-teams-with-firecrawl",
+      "lastmod": "2024-12-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-gamma-supercharges-onboarding-with-firecrawl",
+      "lastmod": "2024-08-08T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-replit-uses-firecrawl-to-power-ai-agents",
+      "lastmod": "2025-02-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-stack-ai-uses-firecrawl-to-power-ai-agents",
+      "lastmod": "2025-01-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/data-extraction-using-llms",
+      "lastmod": "2024-05-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/why-companies-need-a-data-strategy-for-generative-ai",
+      "lastmod": "2024-12-15T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/complete-guide-to-data-enrichment",
+      "lastmod": "2024-12-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deep-research-api",
+      "lastmod": "2025-03-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deep-research-application-firecrawl-streamlit",
+      "lastmod": "2025-03-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deepseek-rag-documentation-assistant",
+      "lastmod": "2025-02-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deploy-web-scrapers",
+      "lastmod": "2024-12-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-firecrawl-extract-endpoint",
+      "lastmod": "2025-01-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fine-tuning-deepseek",
+      "lastmod": "2025-02-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/gemma-3-fine-tuning-firecrawl-unsloth",
+      "lastmod": "2025-03-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/getting-started-with-predicted-outputs-openai",
+      "lastmod": "2024-11-05T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/google-adk-multi-agent-tutorial",
+      "lastmod": "2025-05-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/grok-2-setup-and-web-crawler-example",
+      "lastmod": "2024-10-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-easily-install-requests-with-pip-and-python",
+      "lastmod": "2024-08-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-generate-sitemaps-using-firecrawl-map-endpoint",
+      "lastmod": "2024-11-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-quickly-install-beautifulsoup-with-python",
+      "lastmod": "2024-08-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-use-openai-o1-reasoning-models-in-applications",
+      "lastmod": "2024-09-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-extract-open-beta",
+      "lastmod": "2025-01-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-fire-engine-for-firecrawl",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-july-2024-updates",
+      "lastmod": "2024-07-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-launch-week-1-recap",
+      "lastmod": "2024-09-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-1-introducing-batch-scrape-endpoint",
+      "lastmod": "2024-10-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-2-introducing-location-language-settings",
+      "lastmod": "2024-10-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-3-introducing-credit-packs",
+      "lastmod": "2024-10-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-4-advanced-iframe-scraping",
+      "lastmod": "2024-10-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-5-introducing-two-new-actions",
+      "lastmod": "2024-11-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-6-introducing-mobile-scraping",
+      "lastmod": "2024-11-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-7-introducing-faster-markdown-parsing",
+      "lastmod": "2024-11-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-recap",
+      "lastmod": "2024-11-04T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-0-firecrawl-editor-theme",
+      "lastmod": "2025-04-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-1-introducing-change-tracking",
+      "lastmod": "2025-04-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-2-announcing-fire-1",
+      "lastmod": "2025-04-15T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-3-extract-v2",
+      "lastmod": "2025-04-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-4-announcing-llmstxt-new",
+      "lastmod": "2025-04-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-5-dev-day",
+      "lastmod": "2025-04-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-6-firecrawl-mcp",
+      "lastmod": "2025-04-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-7-integrations",
+      "lastmod": "2025-04-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-6-llm-extract",
+      "lastmod": "2024-08-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-3-introducing-map-endpoint",
+      "lastmod": "2024-08-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-2-doubled-rate-limits",
+      "lastmod": "2024-08-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-1-introducing-teams",
+      "lastmod": "2024-08-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-4-introducing-firecrawl-v1",
+      "lastmod": "2024-08-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-7-webhooks",
+      "lastmod": "2024-09-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-5-real-time-crawling-websockets",
+      "lastmod": "2024-08-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/lead-gen-business-insights-make-firecrawl",
+      "lastmod": "2024-05-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fine-tuning-llama4-custom-dataset-firecrawl",
+      "lastmod": "2025-04-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/llm-api-engine-dynamic-api-generation-explainer",
+      "lastmod": "2025-02-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-firecrawl-scrape-endpoint",
+      "lastmod": "2024-11-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-the-crawl-endpoint-in-firecrawl",
+      "lastmod": "2024-11-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-mcp-servers-for-cursor",
+      "lastmod": "2025-03-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fastmcp-tutorial-building-mcp-servers-python",
+      "lastmod": "2025-04-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mcp-vs-a2a-protocols",
+      "lastmod": "2025-04-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/modern-rag-tech-stack",
+      "lastmod": "2025-03-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/open-deep-research-explainer",
+      "lastmod": "2025-02-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/openai-swarm-agent-tutorial",
+      "lastmod": "2024-10-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-rag-frameworks",
+      "lastmod": "2025-04-08T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/os-watch-github-monitoring-tool",
+      "lastmod": "2025-03-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-web-scraping-libraries",
+      "lastmod": "2025-04-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/chat-with-website",
+      "lastmod": "2024-05-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-enterprise-rag-platforms-2025",
+      "lastmod": "2025-04-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/ai-resume-parser-job-matcher-python",
+      "lastmod": "2025-02-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/sales-lead-extractor-python-ai",
+      "lastmod": "2025-01-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/scrape-job-boards-firecrawl-openai",
+      "lastmod": "2024-09-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/scrape-analyze-airbnb-data-with-e2b",
+      "lastmod": "2024-05-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-search-endpoint",
+      "lastmod": "2025-06-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-june-2024-updates",
+      "lastmod": "2024-06-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-firecrawl-templates",
+      "lastmod": "2025-05-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/trend-finder-typescript",
+      "lastmod": "2025-01-11T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/website-to-image-imagen4-gemini-firecrawl-technical",
+      "lastmod": "2025-05-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/using-structured-output-and-json-strict-mode-openai",
+      "lastmod": "2024-08-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/using-prompt-caching-with-anthropic",
+      "lastmod": "2024-08-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/python-web-scraping-projects",
+      "lastmod": "2024-12-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/website-to-agent-with-firecrawl-openai",
+      "lastmod": "2025-03-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/your-ip-has-been-temporarily-blocked-or-banned",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/top-italian-restaurants-in-sf",
+      "lastmod": "2025-05-07T00:46:35.161Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/o3-mini-company-researcher-gwl",
+      "lastmod": "2025-05-07T23:55:30.139Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/o1-web-crawler",
+      "lastmod": "2025-05-06T23:38:54.690Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/llama-4-maverick-web-extractor-jx3",
+      "lastmod": "2025-05-07T23:42:35.688Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/company-researcher-with-gpt-41",
+      "lastmod": "2025-05-07T15:59:31.416Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/ama-ask-me-anything-ai---chrome-extension-f0s",
+      "lastmod": "2025-05-09T16:34:44.850Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/langgraph-company-researcher",
+      "lastmod": "2025-05-07T00:54:34.305Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/stealth-mode-df3",
+      "lastmod": "2025-05-13T16:38:29.198Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/claude-37-web-extractor-m7f",
+      "lastmod": "2025-05-07T22:44:40.984Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/github-profile-scraper-pnx",
+      "lastmod": "2025-05-07T23:01:21.628Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gemini-25-web-crawler-j01",
+      "lastmod": "2025-05-07T22:58:41.431Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gemini-20-crawler-oom",
+      "lastmod": "2025-05-07T22:56:47.190Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/claude-37-web-crawler-yxy",
+      "lastmod": "2025-05-07T22:43:05.935Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/scrape-a-javascript-heavy-web-page-ymc",
+      "lastmod": "2025-05-12T23:13:51.861Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/groq-web-crawler-nmo",
+      "lastmod": "2025-05-07T23:07:10.470Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gpt-45-crawler-uh8",
+      "lastmod": "2025-05-07T23:05:13.903Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/deepseek-r1-company-researcher-8al",
+      "lastmod": "2025-05-07T22:38:30.005Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/mistral-small-31-crawler-hcz",
+      "lastmod": "2025-05-07T23:45:44.635Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/crawl-entire-website",
+      "lastmod": "2025-05-07T14:47:38.511Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/claude-37-stock-analyzer-hbq",
+      "lastmod": "2025-05-07T22:42:00.055Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/nextjs-firecrawl-starter-2ez",
+      "lastmod": "2025-05-09T16:39:23.553Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/llama-4-maverick-web-crawler-ipa",
+      "lastmod": "2025-05-07T23:40:22.592Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gemini-25-web-researcher-l5m",
+      "lastmod": "2025-05-07T22:59:48.324Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gemini-20-web-extractor-2td",
+      "lastmod": "2025-05-07T22:57:47.637Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/deepseek-v3-company-researcher-843",
+      "lastmod": "2025-05-07T22:50:33.701Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/local-chat-with-websites-kc2",
+      "lastmod": "2025-05-09T17:00:58.681Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/search-with-country-and-language-g0i",
+      "lastmod": "2025-05-13T16:40:59.172Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/ai-enterprise-case-study-analyzer-6y1",
+      "lastmod": "2025-05-09T16:04:02.472Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/deepseek-v3-web-crawler-s0h",
+      "lastmod": "2025-05-07T22:52:07.627Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/extract-chat-ngt",
+      "lastmod": "2025-05-09T17:10:26.251Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/trend-finder-e6k",
+      "lastmod": "2025-05-09T16:47:21.457Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/o1-web-crawler-lf9",
+      "lastmod": "2025-05-07T23:50:45.134Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gpt-41-web-crawler-p3m",
+      "lastmod": "2025-05-07T23:03:05.430Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/o1-web-extractor-k5p",
+      "lastmod": "2025-05-07T23:51:47.351Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/deepseek-r1-web-crawler-nzj",
+      "lastmod": "2025-05-07T22:39:56.463Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/generative-ui-with-langchain-and-firecrawl-za7",
+      "lastmod": "2025-05-09T16:44:28.271Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/grok-web-crawler-ee2",
+      "lastmod": "2025-05-07T23:06:14.828Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/gpt-41-company-researcher-rwi",
+      "lastmod": "2025-05-07T23:03:52.506Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/generate-llmstxt-files-with-cli-oza",
+      "lastmod": "2025-05-09T16:33:08.848Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/openai-realtime-console-with-firecrawl-oql",
+      "lastmod": "2025-05-09T16:50:52.018Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/mistral-small-31-extractor-gf9",
+      "lastmod": "2025-05-07T23:47:10.935Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/devdocs-to-llm-plu",
+      "lastmod": "2025-05-09T15:58:53.326Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/screenshot-to-app-ybf",
+      "lastmod": "2025-05-09T16:53:20.245Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/crawl-and-get-screenshots-for-every-url-5m4",
+      "lastmod": "2025-05-13T16:43:06.905Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/agi-news--o5x",
+      "lastmod": "2025-05-09T16:54:57.221Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/pdf-web-mind-map-maker-xpf",
+      "lastmod": "2025-05-09T16:59:19.436Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/url-to-image-generator-2vu",
+      "lastmod": "2025-05-23T16:47:51.545Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/llmstxt-generator",
+      "lastmod": "2025-05-07T15:56:21.818Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/hubspot-crm-lead-enrichment-psf",
+      "lastmod": "2025-05-07T22:46:46.586Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/scrape-and-take-a-screenshot-go4",
+      "lastmod": "2025-05-13T16:44:06.107Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/map-a-documentation-website-68w",
+      "lastmod": "2025-05-13T16:35:31.650Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/crawl-the-blog-of-a-website-nuu",
+      "lastmod": "2025-05-12T22:42:06.692Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/crawl-a-javascript-heavy-website-hoe",
+      "lastmod": "2025-05-12T23:22:31.125Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/open-deep-research",
+      "lastmod": "2025-05-07T15:40:34.133Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/llm-podcast-engine-pi8",
+      "lastmod": "2025-05-09T16:08:15.217Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/get-all-links-from-a-company-page-on-yc-zj8",
+      "lastmod": "2025-05-12T22:56:11.831Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/templates/o4-mini-web-crawler-y0r",
+      "lastmod": "2025-05-08T01:51:43.033Z",
+      "changefreq": "weekly",
+      "priority": null
+    }
+  ],
+  "blog_urls": [
+    {
+      "url": "https://www.firecrawl.dev/blog",
+      "lastmod": "2025-06-05T11:31:46.770Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/Build-a-Full-Stack-AI-Web-App-in-12-Minutes",
+      "lastmod": "2024-09-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/How-to-Create-an-llms-txt-File-for-Any-Website",
+      "lastmod": "2024-11-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/How-to-Talk-with-Any-Website-Using-OpenAIs-Realtime-API-and-Firecrawl",
+      "lastmod": "2024-10-11T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025",
+      "lastmod": "2025-04-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/ai-powered-web-scraping-solutions-2025",
+      "lastmod": "2025-03-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/an-adventure-in-scaling",
+      "lastmod": "2024-09-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-price-tracking-tutorial-python",
+      "lastmod": "2024-12-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-web-scraping-free-2025",
+      "lastmod": "2024-12-05T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-data-collection-guide",
+      "lastmod": "2025-02-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/browser-automation-tools-comparison-2025",
+      "lastmod": "2025-04-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/beautifulsoup4-vs-scrapy-comparison",
+      "lastmod": "2024-12-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/building-knowledge-graphs-from-web-data-camelai-firecrawl",
+      "lastmod": "2024-08-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/web-scraping-change-detection-with-firecrawl",
+      "lastmod": "2025-05-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/client-relationship-tree-visualization-in-python",
+      "lastmod": "2025-03-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/cloudflare-error-1015-how-to-solve-it",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/automated-competitor-price-scraping",
+      "lastmod": "2025-01-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/complete-guide-to-curl-authentication-firecrawl-api",
+      "lastmod": "2024-12-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/contradiction-agent",
+      "lastmod": "2024-05-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crawlbench-llm-extraction",
+      "lastmod": "2024-12-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crewai-multi-agent-systems-tutorial",
+      "lastmod": "2025-05-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/crunchbase-scraping-with-firecrawl-claude",
+      "lastmod": "2025-01-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/custom-instruction-datasets-llm-fine-tuning",
+      "lastmod": "2025-02-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-athena-intelligence-empowers-analysts-with-firecrawl",
+      "lastmod": "2024-09-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-botpress-enhances-knowledge-base-creation-with-firecrawl",
+      "lastmod": "2025-04-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-cargo-empowers-gtm-teams-with-firecrawl",
+      "lastmod": "2024-12-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-gamma-supercharges-onboarding-with-firecrawl",
+      "lastmod": "2024-08-08T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-replit-uses-firecrawl-to-power-ai-agents",
+      "lastmod": "2025-02-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-stack-ai-uses-firecrawl-to-power-ai-agents",
+      "lastmod": "2025-01-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/data-extraction-using-llms",
+      "lastmod": "2024-05-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/why-companies-need-a-data-strategy-for-generative-ai",
+      "lastmod": "2024-12-15T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/complete-guide-to-data-enrichment",
+      "lastmod": "2024-12-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deep-research-api",
+      "lastmod": "2025-03-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deep-research-application-firecrawl-streamlit",
+      "lastmod": "2025-03-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deepseek-rag-documentation-assistant",
+      "lastmod": "2025-02-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/deploy-web-scrapers",
+      "lastmod": "2024-12-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-firecrawl-extract-endpoint",
+      "lastmod": "2025-01-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fine-tuning-deepseek",
+      "lastmod": "2025-02-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/gemma-3-fine-tuning-firecrawl-unsloth",
+      "lastmod": "2025-03-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/getting-started-with-predicted-outputs-openai",
+      "lastmod": "2024-11-05T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/google-adk-multi-agent-tutorial",
+      "lastmod": "2025-05-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/grok-2-setup-and-web-crawler-example",
+      "lastmod": "2024-10-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-easily-install-requests-with-pip-and-python",
+      "lastmod": "2024-08-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-generate-sitemaps-using-firecrawl-map-endpoint",
+      "lastmod": "2024-11-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-quickly-install-beautifulsoup-with-python",
+      "lastmod": "2024-08-09T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/how-to-use-openai-o1-reasoning-models-in-applications",
+      "lastmod": "2024-09-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-extract-open-beta",
+      "lastmod": "2025-01-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-fire-engine-for-firecrawl",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-july-2024-updates",
+      "lastmod": "2024-07-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-launch-week-1-recap",
+      "lastmod": "2024-09-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-1-introducing-batch-scrape-endpoint",
+      "lastmod": "2024-10-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-2-introducing-location-language-settings",
+      "lastmod": "2024-10-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-3-introducing-credit-packs",
+      "lastmod": "2024-10-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-4-advanced-iframe-scraping",
+      "lastmod": "2024-10-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-5-introducing-two-new-actions",
+      "lastmod": "2024-11-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-6-introducing-mobile-scraping",
+      "lastmod": "2024-11-02T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-day-7-introducing-faster-markdown-parsing",
+      "lastmod": "2024-11-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-ii-recap",
+      "lastmod": "2024-11-04T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-0-firecrawl-editor-theme",
+      "lastmod": "2025-04-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-1-introducing-change-tracking",
+      "lastmod": "2025-04-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-2-announcing-fire-1",
+      "lastmod": "2025-04-15T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-3-extract-v2",
+      "lastmod": "2025-04-16T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-4-announcing-llmstxt-new",
+      "lastmod": "2025-04-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-5-dev-day",
+      "lastmod": "2025-04-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-6-firecrawl-mcp",
+      "lastmod": "2025-04-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-iii-day-7-integrations",
+      "lastmod": "2025-04-20T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-6-llm-extract",
+      "lastmod": "2024-08-31T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-3-introducing-map-endpoint",
+      "lastmod": "2024-08-28T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-2-doubled-rate-limits",
+      "lastmod": "2024-08-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-1-introducing-teams",
+      "lastmod": "2024-08-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-4-introducing-firecrawl-v1",
+      "lastmod": "2024-08-29T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-7-webhooks",
+      "lastmod": "2024-09-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/launch-week-i-day-5-real-time-crawling-websockets",
+      "lastmod": "2024-08-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/lead-gen-business-insights-make-firecrawl",
+      "lastmod": "2024-05-21T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fine-tuning-llama4-custom-dataset-firecrawl",
+      "lastmod": "2025-04-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/llm-api-engine-dynamic-api-generation-explainer",
+      "lastmod": "2025-02-26T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-firecrawl-scrape-endpoint",
+      "lastmod": "2024-11-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mastering-the-crawl-endpoint-in-firecrawl",
+      "lastmod": "2024-11-18T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-mcp-servers-for-cursor",
+      "lastmod": "2025-03-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/fastmcp-tutorial-building-mcp-servers-python",
+      "lastmod": "2025-04-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/mcp-vs-a2a-protocols",
+      "lastmod": "2025-04-25T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/modern-rag-tech-stack",
+      "lastmod": "2025-03-10T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/open-deep-research-explainer",
+      "lastmod": "2025-02-24T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/openai-swarm-agent-tutorial",
+      "lastmod": "2024-10-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-rag-frameworks",
+      "lastmod": "2025-04-08T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/os-watch-github-monitoring-tool",
+      "lastmod": "2025-03-19T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-open-source-web-scraping-libraries",
+      "lastmod": "2025-04-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/chat-with-website",
+      "lastmod": "2024-05-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/best-enterprise-rag-platforms-2025",
+      "lastmod": "2025-04-22T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/ai-resume-parser-job-matcher-python",
+      "lastmod": "2025-02-01T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/sales-lead-extractor-python-ai",
+      "lastmod": "2025-01-12T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/scrape-job-boards-firecrawl-openai",
+      "lastmod": "2024-09-27T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/scrape-analyze-airbnb-data-with-e2b",
+      "lastmod": "2024-05-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-search-endpoint",
+      "lastmod": "2025-06-03T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/firecrawl-june-2024-updates",
+      "lastmod": "2024-06-30T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/introducing-firecrawl-templates",
+      "lastmod": "2025-05-13T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/trend-finder-typescript",
+      "lastmod": "2025-01-11T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/website-to-image-imagen4-gemini-firecrawl-technical",
+      "lastmod": "2025-05-23T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/using-structured-output-and-json-strict-mode-openai",
+      "lastmod": "2024-08-07T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/using-prompt-caching-with-anthropic",
+      "lastmod": "2024-08-14T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/python-web-scraping-projects",
+      "lastmod": "2024-12-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/website-to-agent-with-firecrawl-openai",
+      "lastmod": "2025-03-17T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    },
+    {
+      "url": "https://www.firecrawl.dev/blog/your-ip-has-been-temporarily-blocked-or-banned",
+      "lastmod": "2024-08-06T00:00:00.000Z",
+      "changefreq": "weekly",
+      "priority": null
+    }
+  ]
+}
