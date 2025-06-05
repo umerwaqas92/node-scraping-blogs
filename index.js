@@ -13,7 +13,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 async function scrapeBlogPost(url) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ 
+    headless: "new",
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--single-process',
+      '--disable-gpu'
+    ]
+  });
   const page = await browser.newPage();
   
   try {
