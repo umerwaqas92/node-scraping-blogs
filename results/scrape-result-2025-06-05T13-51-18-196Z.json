@@ -1,0 +1,445 @@
+{
+  "url": "https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/",
+  "title": "Understanding React’s useEffect cleanup function - LogRocket Blog",
+  "metaDescription": "Explore use cases for using React’s `useEffect` cleanup function to save apps from unwanted behaviors and memory leaks by cleaning up effects.",
+  "sections": [
+    {
+      "title": "Advisory boards aren’t only for executives. Join the LogRocket Content Advisory Board today →",
+      "content": "",
+      "images": [],
+      "headingLevel": "h6"
+    },
+    {
+      "title": "Understanding React’s useEffect cleanup function",
+      "content": "Chimezie Innocent\n            I am Chimezie, a software developer based in Nigeria. I am highly skilled in HTML, CSS, and JS to build web-accessible and progressive apps. I'm also skilled with React for web, React Native for Android apps, and Tailwind CSS. I write technical articles, too.",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Chimezie-Innocent.png?w=128&h=128&crop=1",
+          "alt": "",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h1"
+    },
+    {
+      "title": "Why is the useEffect cleanup function useful?",
+      "content": "The useEffect cleanup function helps developers clean effects that prevent unwanted behaviors, thereby optimizing application performance.\nHowever, it is important to note that the useEffect cleanup function does not only run when our component wants to unmount — it also runs right before the execution of the next scheduled effect.\nIn fact, after our effect executes, the next scheduled effect is usually based on the dependency array:\n// The `dependency` in the code below is an array\nuseEffect(callback, dependency)\nTherefore, when our effect is dependent on our prop or whenever we set up something that persists, we have a reason to call the cleanup function.\nLet’s look at this scenario: imagine we request the server to fetch a particular user’s information using the user’s id. Before the request is completed, we change our mind and try to make another request to get a different user’s information.\nAt this point, both fetch requests would continue to run even after the component unmounts or the dependencies change. This can lead to unexpected behavior or errors, such as displaying outdated information or attempting to update components that are no longer mounted. So, we must abort the fetch using the cleanup function.",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "When should we use the useEffect cleanup?",
+      "content": "Let’s say we have a React component that fetches and renders data. If our component unmounts before our promise resolves, useEffect will try to update the state (on an unmounted component) and React will emit a warning that looks like this:\nThe above warning occurs in React versions 17 and below. It has been removed in React 18. It was removed because React has no way of detecting actual memory leaks. In versions 17 and below, React flags any state update after a component unmounts as a possible memory leak when most are not. More often than not, developers spend time coming up with solutions to remove false warnings like the one above.\nDespite not getting the above warning in React 18 and above, as we will see shortly, you need to use the cleanup function to cancel subscriptions and other side effects that may otherwise cause memory leaks and, where necessary, cancel fetch requests to provide a better user experience. We will also explore workarounds to remove the above warning in React versions 17 and below.\nAccording to React’s official documentation, “The cleanup function runs not only during unmount, but before every re-render with changed dependencies. Additionally, in development, React runs setup+cleanup one extra time immediately after component mounts.”\nAs a side note before we continue: useEffects can be made to run once by simply passing an empty array to the dependency list. When you provide an empty array as the dependency list for useEffect, it indicates that the effect does not depend on any values from the component’s state or props. As a result, the effect will only run once, after the initial render, and it won’t run again for subsequent renders unless the component is unmounted and remounted:\nuseEffect(() => {\n  // Effect implementation\n  }, []); // Empty dependency array indicates the effect should only run once\nNow that we understand how to make useEffect run once, let’s get back to our cleanup function conversation.\nThe cleanup function is commonly used to cancel all active subscriptions and async requests. Now, let’s write some code and see how we can accomplish these cancellations.",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Warning-error.png",
+          "alt": "Memory Leak Warning",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Cleaning up a subscription",
+      "content": "To begin cleaning up a subscription, it is essential to first unsubscribe. This step prevents our application from potential memory leaks and aids in its optimization.\nTo unsubscribe from our subscriptions before our component unmounts, let’s set our variable, isApiSubscribed, to true, and then we can set it to false when we want to unmount:\nuseEffect(() => {\n  // set our variable to true\n  let isApiSubscribed = true;\n  axios.get(API).then((response) => {\n    if (isApiSubscribed) {\n      // handle success\n    }\n  });\n  return () => {\n    // cancel the subscription\n    isApiSubscribed = false;\n  };\n}, []);",
+      "images": [],
+      "headingLevel": "h3"
+    },
+    {
+      "title": "Canceling a fetch request",
+      "content": "There are different ways to cancel fetch request calls: either we use AbortController or Axios’ cancel token.\nTo use AbortController, we must create a controller using the AbortController() constructor. Then, when our fetch request initiates, we pass AbortSignal as an option inside the request’s option object.\nOver 200k developers use LogRocket to create better digital experiences\n      Learn more →  \n  \n\n\n\n@media all and (max-width: 800px){\n    .tweet-embed-container {flex-direction: column !important;}\n    .single-tweet, .embed-tweet-right {width: 100% !important;}\n}\n.embed-link {text-decoration: none;}\n.embed-link:hover {text-decoration: none;}\n.tweet-embed-container {border-radius: 20px;\n  background: radial-gradient(79.69% 102.24% at 100% 100.11%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(89.7% 115.09% at 3.43% 2.75%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0)), #764ABC;\nbackground-blend-mode: overlay, overlay, normal;\n  box-shadow: 0 4px 0 #d5d5d5;\n  width: auto;\n  padding: 20px 15px;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n  align-items: center;\n  margin: 0 auto;\n  gap: 3%;\n}\n.single-tweet {width: 50%;}\n.single-tweet img {max-width: 100%;height: auto; border-radius:7px;}\n.embed-tweet-right {width: 46%;}\n.embed-tweet-right h2 {font-family: 'Avenir';\nfont-style: normal;\nfont-weight: 500;\nfont-size: 16px;\nline-height: 28px;\ncolor: #FFFFFF;}\n.embed-btn {\n  display: flex;\n  flex-direction: row;\n  justify-content: left;\n  width: 170px;\n  gap: 5px;\n  align-items: center;\n  padding: 0px 10px;\n  font-family: 'Avenir';\nfont-style: normal;\nfont-weight: 900;\nfont-size: 16px;\nline-height: 16px;\ncolor: #764ABC;\nheight: 48px;\n/* White */\nbackground: #FFFFFF;\nmix-blend-mode: normal;\nbox-shadow: 0px 24px 30px rgba(0, 0, 0, 0.11);\nborder-radius: 80px;\n  border: none;\n}\nThis associates the controller and signal with the fetch request and lets us cancel it anytime using AbortController.abort():\nuseEffect(() => {\n  const controller = new AbortController();\n  const signal = controller.signal;\n  fetch(API, {\n    signal: signal,\n  })\n    .then((response) => response.json())\n    .then((response) => {\n      // handle success\n    });\n  return () => {\n    // cancel the request before component unmounts\n    controller.abort();\n  };\n}, []);\nWe enhance our error handling, and we can add a condition within our catch block to handle errors when aborting a fetch request.\nBy implementing a condition that identifies if the error is due to an abort action, we can avoid updating the state in such scenarios, ensuring smoother error management and component lifecycle handling:\nuseEffect(() => {\n  const controller = new AbortController();\n  const signal = controller.signal;\n\n   fetch(API, {\n      signal: signal\n    })\n    .then((response) => response.json())\n    .then((response) => {\n      // handle success\n      console.log(response);\n    })\n    .catch((err) => {\n      if (err.name === 'AbortError') {\n        console.log('successfully aborted');\n      } else {\n        // handle error\n      }\n    });\n  return () => {\n    // cancel the request before component unmounts\n    controller.abort();\n  };\n}, []);\nNow, even if we get impatient and navigate to another page before our request resolves, we won’t get a warning because the request will abort before the component unmounts. If we get an abort error, the state won’t update either.\nSo, let’s see how we can do the same using the Axios cancel token.\nWe first store the CancelToken.source() from Axios in a constant named source, pass the token as an Axios option, and then cancel the request anytime with source.cancel():\nuseEffect(() => {\n  const CancelToken = axios.CancelToken;\n  const source = CancelToken.source();\n  axios\n    .get(API, {\n      cancelToken: source.token\n    })\n    .catch((err) => {\n      if (axios.isCancel(err)) {\n        console.log('successfully aborted');\n      } else {\n        // handle error\n      }\n    });\n  return () => {\n    // cancel the request before component unmounts\n    source.cancel();\n  };\n}, []);\nJust like we did with AbortError in AbortController, Axios gives us a method called isCancel that allows us to check the cause of our errors and know how to handle them.\nIf the request fails because the Axios source aborts or cancels, then we do not want to update the state.\n#podrocket-plug {\n  border-radius: 12px;\n  width: 75%;\n  height: 352px;\n  margin: 1rem auto;\n  display: block;\n}\nN.B., the Axios CancelToken API is deprecated at the time of writing. It has been highlighted here for legacy reasons. Use the AbortController API for new projects.\nHow to use the useEffect cleanup function\nLet’s see an example of when the above warning can happen and how to use the cleanup function when it does. Let’s begin by creating two files: Post and App. Continue by writing the following code:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n    fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => setError(err));\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nThis is a simple post component that gets posts on mount and handles fetch errors.\nHere, we import the post component into our main component and display the posts whenever we click the button. The button shows and hides the posts, that is, it mounts and unmounts our post component:\n// App component\n\nimport React, { useState } from \"react\";\nimport Post from \"./Post\";\nconst App = () => {\n  const [show, setShow] = useState(false);\n  const showPost = () => {\n    // toggles posts onclick of button\n    setShow(!show);\n  };\n  return (\n    <div>\n      <button onClick={showPost}>Show Posts</button>\n      {show && <Post />}\n    </div>\n  );\n};\nexport default App;\nClick the button and, before the posts are displayed, click it again. In a different scenario, this action could lead to navigation to another page before the posts appear, resulting in a warning message in the console.\nThis is because React’s useEffect is still running and trying to fetch the API in the background. When it is done fetching the API, it then tries to update the state, but this time on an unmounted component, so it emits the following warning in React version 17 and below:\nNow, to clear this warning, we must implement the cleanup function using any of the above solutions. We’ll use AbortController:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n    fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => {\n        setError(err);\n      });\n    return () => controller.abort(); // clean up function\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nWe still see in the console that even after aborting the signal in the cleanup function, the unmounting emits a warning. As we discussed earlier, this warning happens when we abort the fetch call.\nuseEffect catches the abort error in the catch block and tries to update the error state, which then emits a warning. To stop this update, we can use an if else condition and check the type of error we get.\nIn the case of an abort error, we don’t need to update the state. Otherwise, we handle the error accordingly:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\n\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n\n      fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => {\n        if (err.name === \"AbortError\") {\n          console.log(\"successfully aborted\");\n        } else {\n          setError(err);\n        }\n      });\n    return () => controller.abort();\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nNote that we should only use err.name === \"AbortError\" when using the Fetch API and the axios.isCancel() method when using Axios.\nWith that, we are done!\nManaging unexpected useEffect calls\nThe useEffect Hook comes in handy for managing side effects in a React application. However, it is not uncommon for it to behave unexpectedly. Usually, this unexpected behavior is a result of incorrect usage, omitting certain dependencies, or incorrect usage of the cleanup function.\nTherefore, if you face a situation where your useEffect Hook behaves unexpectedly, you can do the following:\nMake sure you’ve understood the useEffect Hook and are using it correctly for managing side effects\nThe useEffect Hook takes a dependency array as a second argument. This array of dependencies determines when the useEffect Hook is called. Check to make sure you are passing the correct dependencies\nYou also need to be sure you are cleaning up effects in the cleanup function where necessary\nWhen a cleanup function is not necessary\nThroughout this guide, we’ve seen how you can use the cleanup function in the useEffect Hook to prevent memory leaks and improve the performance of your application. However, in some cases, you might not need a cleanup function in useEffect.\nFor example, if your useEffect has any of the following behaviors, you might not need to implement a cleanup function:\nIf your effect doesn’t perform any side effects like subscriptions, event listeners, or timers, there’s no need for cleanup. Effects that simply read data or update state without external connections usually don’t require the cleanup function\nIf your effect uses empty dependency arrays and does not depend on any service that requires closing or cleanup when the component unmounts or before the component that implements the useEffect re-renders\nHere is an example of when a cleanup function is not necessary in a useEffect:\nimport { useEffect } from 'react';\n\nfunction Page({ title }) {\n  useEffect(() => {\n    document.title = title;\n  }, [title]);\n\n  return <h1>{title}</h1>;   \n}\nIn the above code, we don’t need a cleanup function even though there is an effect. The effect is self-contained and does not have a side effect that needs closing or cleanup and it’s been added to the dependency array. Moreso, if you don’t absolutely need a useEffect, you should use other more suitable React Hooks.\nIn most cases, you want to useEffect to interact with the outside world without interrupting the React rendering system and performance.\nConclusion\nThe useEffect Hook in React is a powerful tool for managing side effects, but improper usage can lead to unexpected behaviors. To avoid issues like useEffect being unexpectedly called or memory leaks, place useEffect logically in your component structure (e.g., above or below functions as needed) and ensure dependencies are correctly managed.\nUsing cleanup functions effectively can prevent unwanted effects and improve your application’s performance. By understanding when useEffect is called, you can confidently manage React component lifecycles and avoid common pitfalls.\n.plug-cta-button {\n        display: block;\n        margin: 0 auto;\n        width: 250px;\n        height: 55px;\n        background-color: #764abc;\n        border-radius: 8px;\n        color: #fff !important;\n        font-family: proxima-nova, sans-serif;\n        font-size: 16px;\n        font-weight: 800;\n        text-decoration: none;\n        text-align: center;\n        line-height: 55px\n    }\n\n    #plug-tabs > ul {\n        display: flex;\n        border-bottom: 1px solid gray;\n        list-style: none;\n        padding: 0;\n    }\n\n    #plug-tabs > ul li a,\n    #plug-tabs > ul li a:active,\n    #plug-tabs > ul li a:hover {\n        display: block;\n        padding: 0.25rem 1rem;\n        text-decoration: none;\n    }\n\n    #plug-tabs .ui-tabs-active {\n        border-top-right-radius: 8px;\n        border-top-left-radius: 8px;\n        border: 1px solid gray;\n        border-bottom: 1px solid white;\n        margin-bottom: -1px;\n    }\n\n    #plug-tabs pre {\n        margin: 0 0 1rem 0;\n    }\n\n\n    window.addEventListener('load', function() {\n        jQuery(\"#plug-tabs\").tabs();\n    });\n\n\n\n    Get set up with LogRocket's modern React error tracking in minutes:\n    \n        \n            Visit https://logrocket.com/signup/ to get\n            an app ID\n        \n        \n            \n            Install LogRocket via npm or script tag. LogRocket.init() must be called client-side, not\n            server-side\n            \n            \n                \n                    npm\n                    Script tag \n                \n                \n                    \n                        $ npm i --save logrocket \n\n// Code:\n\nimport LogRocket from 'logrocket'; \nLogRocket.init('app/id');\n                    \n                    \n                    \n                        // Add to your HTML:\n\n<script src=\"https://cdn.lr-ingest.com/LogRocket.min.js\"></script>\n<script>window.LogRocket && window.LogRocket.init('app/id');</script>\n                    \n                    \n                \n            \n        \n        (Optional) Install plugins for deeper integrations with your stack:\n                Redux middleware\n                NgRx middleware\n                Vuex plugin\n            \n    \n    \n        Get started now",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2022/11/Screen-Shot-2022-09-22-at-12.55.13-PM.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2022/08/rocket-button-icon.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Error-updating-state-unmounted-component.png",
+          "alt": "Warning Message From Updating The State Of An Unmounted Component",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h3"
+    },
+    {
+      "title": "Over 200k developers use LogRocket to create better digital experiences",
+      "content": "Learn more →",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2022/08/rocket-button-icon.png",
+          "alt": "",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "How to use the useEffect cleanup function",
+      "content": "Let’s see an example of when the above warning can happen and how to use the cleanup function when it does. Let’s begin by creating two files: Post and App. Continue by writing the following code:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n    fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => setError(err));\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nThis is a simple post component that gets posts on mount and handles fetch errors.\nHere, we import the post component into our main component and display the posts whenever we click the button. The button shows and hides the posts, that is, it mounts and unmounts our post component:\n// App component\n\nimport React, { useState } from \"react\";\nimport Post from \"./Post\";\nconst App = () => {\n  const [show, setShow] = useState(false);\n  const showPost = () => {\n    // toggles posts onclick of button\n    setShow(!show);\n  };\n  return (\n    <div>\n      <button onClick={showPost}>Show Posts</button>\n      {show && <Post />}\n    </div>\n  );\n};\nexport default App;\nClick the button and, before the posts are displayed, click it again. In a different scenario, this action could lead to navigation to another page before the posts appear, resulting in a warning message in the console.\nThis is because React’s useEffect is still running and trying to fetch the API in the background. When it is done fetching the API, it then tries to update the state, but this time on an unmounted component, so it emits the following warning in React version 17 and below:\nNow, to clear this warning, we must implement the cleanup function using any of the above solutions. We’ll use AbortController:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n    fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => {\n        setError(err);\n      });\n    return () => controller.abort(); // clean up function\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nWe still see in the console that even after aborting the signal in the cleanup function, the unmounting emits a warning. As we discussed earlier, this warning happens when we abort the fetch call.\nuseEffect catches the abort error in the catch block and tries to update the error state, which then emits a warning. To stop this update, we can use an if else condition and check the type of error we get.\nIn the case of an abort error, we don’t need to update the state. Otherwise, we handle the error accordingly:\n// Post component\n\nimport React, { useState, useEffect } from \"react\";\n\nexport default function Post() {\n  const [posts, setPosts] = useState([]);\n  const [error, setError] = useState(null);\n  useEffect(() => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n\n      fetch(\"https://jsonplaceholder.typicode.com/posts\", { signal: signal })\n      .then((res) => res.json())\n      .then((res) => setPosts(res))\n      .catch((err) => {\n        if (err.name === \"AbortError\") {\n          console.log(\"successfully aborted\");\n        } else {\n          setError(err);\n        }\n      });\n    return () => controller.abort();\n  }, []);\n  return (\n    <div>\n      {!error ? (\n        posts.map((post) => (\n          <ul key={post.id}>\n            <li>{post.title}</li>\n          </ul>\n        ))\n      ) : (\n        <p>{error}</p>\n      )}\n    </div>\n  );\n}\nNote that we should only use err.name === \"AbortError\" when using the Fetch API and the axios.isCancel() method when using Axios.\nWith that, we are done!",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Error-updating-state-unmounted-component.png",
+          "alt": "Warning Message From Updating The State Of An Unmounted Component",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Managing unexpected useEffect calls",
+      "content": "The useEffect Hook comes in handy for managing side effects in a React application. However, it is not uncommon for it to behave unexpectedly. Usually, this unexpected behavior is a result of incorrect usage, omitting certain dependencies, or incorrect usage of the cleanup function.\nTherefore, if you face a situation where your useEffect Hook behaves unexpectedly, you can do the following:\nMake sure you’ve understood the useEffect Hook and are using it correctly for managing side effects\nThe useEffect Hook takes a dependency array as a second argument. This array of dependencies determines when the useEffect Hook is called. Check to make sure you are passing the correct dependencies\nYou also need to be sure you are cleaning up effects in the cleanup function where necessary",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "When a cleanup function is not necessary",
+      "content": "Throughout this guide, we’ve seen how you can use the cleanup function in the useEffect Hook to prevent memory leaks and improve the performance of your application. However, in some cases, you might not need a cleanup function in useEffect.\nFor example, if your useEffect has any of the following behaviors, you might not need to implement a cleanup function:\nIf your effect doesn’t perform any side effects like subscriptions, event listeners, or timers, there’s no need for cleanup. Effects that simply read data or update state without external connections usually don’t require the cleanup function\nIf your effect uses empty dependency arrays and does not depend on any service that requires closing or cleanup when the component unmounts or before the component that implements the useEffect re-renders\nHere is an example of when a cleanup function is not necessary in a useEffect:\nimport { useEffect } from 'react';\n\nfunction Page({ title }) {\n  useEffect(() => {\n    document.title = title;\n  }, [title]);\n\n  return <h1>{title}</h1>;   \n}\nIn the above code, we don’t need a cleanup function even though there is an effect. The effect is self-contained and does not have a side effect that needs closing or cleanup and it’s been added to the dependency array. Moreso, if you don’t absolutely need a useEffect, you should use other more suitable React Hooks.\nIn most cases, you want to useEffect to interact with the outside world without interrupting the React rendering system and performance.",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Conclusion",
+      "content": "The useEffect Hook in React is a powerful tool for managing side effects, but improper usage can lead to unexpected behaviors. To avoid issues like useEffect being unexpectedly called or memory leaks, place useEffect logically in your component structure (e.g., above or below functions as needed) and ensure dependencies are correctly managed.\nUsing cleanup functions effectively can prevent unwanted effects and improve your application’s performance. By understanding when useEffect is called, you can confidently manage React component lifecycles and avoid common pitfalls.\n.plug-cta-button {\n        display: block;\n        margin: 0 auto;\n        width: 250px;\n        height: 55px;\n        background-color: #764abc;\n        border-radius: 8px;\n        color: #fff !important;\n        font-family: proxima-nova, sans-serif;\n        font-size: 16px;\n        font-weight: 800;\n        text-decoration: none;\n        text-align: center;\n        line-height: 55px\n    }\n\n    #plug-tabs > ul {\n        display: flex;\n        border-bottom: 1px solid gray;\n        list-style: none;\n        padding: 0;\n    }\n\n    #plug-tabs > ul li a,\n    #plug-tabs > ul li a:active,\n    #plug-tabs > ul li a:hover {\n        display: block;\n        padding: 0.25rem 1rem;\n        text-decoration: none;\n    }\n\n    #plug-tabs .ui-tabs-active {\n        border-top-right-radius: 8px;\n        border-top-left-radius: 8px;\n        border: 1px solid gray;\n        border-bottom: 1px solid white;\n        margin-bottom: -1px;\n    }\n\n    #plug-tabs pre {\n        margin: 0 0 1rem 0;\n    }\n\n\n    window.addEventListener('load', function() {\n        jQuery(\"#plug-tabs\").tabs();\n    });\n\n\n\n    Get set up with LogRocket's modern React error tracking in minutes:\n    \n        \n            Visit https://logrocket.com/signup/ to get\n            an app ID\n        \n        \n            \n            Install LogRocket via npm or script tag. LogRocket.init() must be called client-side, not\n            server-side\n            \n            \n                \n                    npm\n                    Script tag \n                \n                \n                    \n                        $ npm i --save logrocket \n\n// Code:\n\nimport LogRocket from 'logrocket'; \nLogRocket.init('app/id');\n                    \n                    \n                    \n                        // Add to your HTML:\n\n<script src=\"https://cdn.lr-ingest.com/LogRocket.min.js\"></script>\n<script>window.LogRocket && window.LogRocket.init('app/id');</script>\n                    \n                    \n                \n            \n        \n        (Optional) Install plugins for deeper integrations with your stack:\n                Redux middleware\n                NgRx middleware\n                Vuex plugin\n            \n    \n    \n        Get started now",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Get set up with LogRocket's modern React error tracking in minutes:",
+      "content": "Visit https://logrocket.com/signup/ to get\n            an app ID\n        \n        \n            \n            Install LogRocket via npm or script tag. LogRocket.init() must be called client-side, not\n            server-side\n            \n            \n                \n                    npm\n                    Script tag \n                \n                \n                    \n                        $ npm i --save logrocket \n\n// Code:\n\nimport LogRocket from 'logrocket'; \nLogRocket.init('app/id');\n                    \n                    \n                    \n                        // Add to your HTML:\n\n<script src=\"https://cdn.lr-ingest.com/LogRocket.min.js\"></script>\n<script>window.LogRocket && window.LogRocket.init('app/id');</script>\n                    \n                    \n                \n            \n        \n        (Optional) Install plugins for deeper integrations with your stack:\n                Redux middleware\n                NgRx middleware\n                Vuex plugin\nGet started now",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Stop guessing about your digital experience with LogRocket",
+      "content": "Get started for free",
+      "images": [],
+      "headingLevel": "h2"
+    },
+    {
+      "title": "Recent posts:",
+      "content": "It’s time to break the cycle of developer elitism\n        \n                Let’s talk about one of the greatest problems in software development: nascent developers bouncing off grouchy superiors into the arms of AI.\n\n    \n    \n        \n                    \n        Lewis Cianci\n        Jun 4, 2025 ⋅ 9 min read\n    \n\n\n    \n        \n            \n            When to use Flexbox and when to use CSS Grid\n        \n                Flexbox and Grid are the heart of modern CSS layouts. Learn when to use each and how they help build flexible, responsive web designs — no more hacks or guesswork.\n\n    \n    \n        \n                    \n        Leonardo Maldonado\n        Jun 3, 2025 ⋅ 9 min read\n    \n\n\n    \n        \n            \n            Using CSS breakpoints for fluid, future-proof layouts\n        \n                Responsive design is evolving. This guide covers media queries, container queries, and fluid design techniques to help your layouts adapt naturally to any screen size.\n\n    \n    \n        \n                    \n        Rob O'Leary\n        Jun 3, 2025 ⋅ 13 min read\n    \n\n\n    \n        \n            \n            React  forwardRef  explained: Usage, alternatives, and React 19 update\n        \n                ForwardRef lets you pass refs through components to access child DOM nodes directly — learn how and when to use it in React 18 and earlier.\n\n    \n    \n        \n                    \n        Peter Ekene Eze\n        Jun 3, 2025 ⋅ 14 min read",
+      "images": [
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2025/06/the_hidden_cost_of_developer_elitism_web.png?w=420",
+          "alt": "hidden coast of developer elitism",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2022/01/Lewis-Cianci.jpeg?w=150&h=150&crop=1",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2020/04/css-flexbox-vs-css-grid.png?w=420",
+          "alt": "When To Use Flexbox And When To Use CSS Grid",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2020/02/leonardomaldonado.jpg?w=150&h=150&crop=1",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2024/05/css-breakpoints-responsive-design.png?w=420",
+          "alt": "CSS Breakpoints For Responsive Design",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2020/12/rob-oleary.png?w=128&h=128&crop=1",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2023/03/use-forwardref-react.png?w=420",
+          "alt": "How To Use ForwardRef In React",
+          "caption": ""
+        },
+        {
+          "src": "https://blog.logrocket.com/wp-content/uploads/2019/04/peterekeneeze.jpg?w=150&h=150&crop=1",
+          "alt": "",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "It’s time to break the cycle of developer elitism",
+      "content": "",
+      "images": [],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "When to use Flexbox and when to use CSS Grid",
+      "content": "",
+      "images": [],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "Using CSS breakpoints for fluid, future-proof layouts",
+      "content": "",
+      "images": [],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "React  forwardRef  explained: Usage, alternatives, and React 19 update",
+      "content": "",
+      "images": [],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "13 Replies to \"Understanding React’s <code>useEffect</code> cleanup function\"",
+      "content": "#comments .comment .reply::after {\n                    background-image: url(\"https://blog.logrocket.com/wp-content/themes/logrocket/assets/svgs/reply.svg\");\n                    background-repeat: no-repeat;\n                }\n            \n            \t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tsrinivasa reddy says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 24, 2021 at 12:43 pm\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\twell written.Thanks for clearly explaining\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tChimezie Innocent says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 29, 2021 at 8:35 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tThank you.\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\n\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tJaime says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 28, 2021 at 10:52 pm\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tWondering if I could get clarification on something that I can’t understand. With the isAPISubscribed example, you declare the isAPISubscribed var and set it to true, but in the clean up you set it to false. But when useEffect fires , isAPISubscribed is declared again and set to true. If it’s set to false in the clean up, but then it’s set to true when useEffect fires, wouldn’t the conditional that checks if it’s truthy always be met and it’s code block would always run? I’m just having a hard time understanding the use of declaring isAPISubscribed to false if it immediately gets set to true when useEffect updates. Thank you.\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tChimezie Innocent says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 29, 2021 at 9:54 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tOkay Jamie, let me explain,\nFirstly, I made an error there. It should be `let isApiSubscribed = true` and not const because const cannot be redeclared,\nSecondly, it works just as how AbortController and CancelToken works just a different approach. The approach is that state will always and only update when our condition is true or checks for truthy but when our component unmounts, the condition is changed to false in the cleanup function. Remember, what we are trying to achieve is that when out component unmounts, state does not update.\nThirdly, concerning the part you find hard to understand. When our component unmounts, useEffect checks the cleanup function and if there is a code block there, executes it so when we set isApiSubscribed to false, useEffect therefore changes the condition to false and hence, state won’t update because state only updates when condition is true.\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tJaime says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 29, 2021 at 5:47 pm\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tHi, Chimezie. Thanks for responding. What I can’t wrap my head around is the value of isApiSubscribed during the time span of when the component unmounts and when the clean up function actually fires. The clean up function sets isApiSubscribed to false, but the clean up function only fires right before useEffect fires again. So wouldn’t that mean that during the time span of the unmount and remount that isApiSubscribed still true? \nSay you got to a different page. During that time, isApiSubscribed is still true, which would cause the performance issues and leaks that you described. But when we go back to the page which has the useEffect that contains isApiSubscribed, that’s when the clean up function actually fires, right before useEffect is ran and thus setting isApiSubscribed to false. \nWhen I log out the value of isApiSubscribed from within the clean up function it shows value of false, but it only logs it out right before useEffect runs again. So is isApiSubscribed set to false right when the unmount occurs, or when the clean up function actually runs? \nApologies for my confusion. Your article was written very well and my lack of understanding doesn’t come from your explanation, but from the concept of how the clean up function works behind the scenes. No worries if you don’t answer, btw.\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\n\n\n\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tShinchan Shukla says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 29, 2021 at 4:17 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tThanks bro\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tChimezie Innocent says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 29, 2021 at 8:37 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tYou are welcome Shinchan\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\n\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tMansi Sharma says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tDecember 23, 2021 at 2:01 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tthanks for sharing this blog  . react native is now used as a framework for hybrid app development as well . its a good framework to work with for application development\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tDavid Olowomeye says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tJanuary 3, 2023 at 8:53 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tWell detailed and explained. Thank you!\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tRavi says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tMarch 15, 2024 at 2:57 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tFantastic ! such a nice and informative blog, I appreciate you taking the time and making the effort to create this content. Thank you for sharing.\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tAnton says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tJuly 10, 2024 at 9:23 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tUseful to note EffectCallback type, which provided by library. Return type of such effect function should be a cleanup function. Taking mentioned in account you should think about your effect -> what it should return to be used in useEffect like useEffect(wellWrittenFunctionEffectCallbackTyped, depsArr)\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tsdfds says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tAugust 21, 2024 at 8:01 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tgood\n\t\t\t\t\n\n\t\t\t\tReply\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tvedant says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tOctober 28, 2024 at 2:46 am\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tGreat post! Thanks for putting this together. I find it very interesting and well thought out and put together. Keep it up.\n\t\t\t\t\n\n\t\t\t\tReply\nLeave a ReplyCancel reply\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tdocument.addEventListener('DOMContentLoaded', function () {\n\t\t\t\t\t\t\tvar commentForms = document.getElementsByClassName('jetpack_remote_comment');\n\t\t\t\t\t\t\tfor (var i = 0; i < commentForms.length; i++) {\n\t\t\t\t\t\t\t\tcommentForms[i].allowTransparency = false;\n\t\t\t\t\t\t\t\tcommentForms[i].scrolling = 'no';\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t});",
+      "images": [
+        {
+          "src": "https://secure.gravatar.com/avatar/b982a50996ab36153089fddd4c1dbda9f483cc54b9b86b2683ca1600cc53e729?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/67aac3dcb47ad5fb92f126e3c028689e438d0e3f79639c3fdea89f8b5fedffc8?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/67aac3dcb47ad5fb92f126e3c028689e438d0e3f79639c3fdea89f8b5fedffc8?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/6952fffd408486df024f908f4374daa164d413b76ccd91eae0d645ba6ff111b3?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/186e15b0ca2d04aa63b4cb49cc3e5f623b924a7b532f5d14e5923b16f8413a89?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/53d967a1c715c526437f443bdaea8558a8d5fd0fe96335022a2349c2f386629a?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/a16399bd4a7bd90a6005b11dbb9d0275f10b93e337ee8c2bad23f89ee6babc66?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/0122b332d1d91a12f7bd12d836989b8702e4ed190b4752a4499f272fecacd58e?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/0552385ac2854bd21be255b1cc439b45c135e06414cc70bdcf08b178a6bd9aa5?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "src": "https://secure.gravatar.com/avatar/dbecd774e4ab62734177b6f25b386977bd41a30c1a39232052c49666c09ee9a8?s=36&d=mm&r=g",
+          "alt": "",
+          "caption": ""
+        }
+      ],
+      "headingLevel": "h4"
+    },
+    {
+      "title": "Leave a ReplyCancel reply",
+      "content": "document.addEventListener('DOMContentLoaded', function () {\n\t\t\t\t\t\t\tvar commentForms = document.getElementsByClassName('jetpack_remote_comment');\n\t\t\t\t\t\t\tfor (var i = 0; i < commentForms.length; i++) {\n\t\t\t\t\t\t\t\tcommentForms[i].allowTransparency = false;\n\t\t\t\t\t\t\t\tcommentForms[i].scrolling = 'no';\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t});",
+      "images": [],
+      "headingLevel": "h3"
+    }
+  ],
+  "allImages": [
+    {
+      "src": "https://blog.logrocket.com/wp-content/themes/logrocket/assets/logrocket-logo.png",
+      "alt": "LogRocket blog logo",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Chimezie-Innocent.png?w=128&h=128&crop=1",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2023/12/GalileoAIPreview.png",
+      "alt": "LogRocket Galileo logo",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Understanding-React-useEffect-cleanup-function-nocdn.png",
+      "alt": "Understanding React useEffect Cleanup Function",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Warning-error.png",
+      "alt": "Memory Leak Warning",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/11/Screen-Shot-2022-09-22-at-12.55.13-PM.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/08/rocket-button-icon.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Error-updating-state-unmounted-component.png",
+      "alt": "Warning Message From Updating The State Of An Unmounted Component",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/06/footer-cta-dots-left.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/06/footer-cta-dots-right.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/09/logrocket-logo-frontend-analytics.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2025/06/the_hidden_cost_of_developer_elitism_web.png?w=420",
+      "alt": "hidden coast of developer elitism",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2022/01/Lewis-Cianci.jpeg?w=150&h=150&crop=1",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2020/04/css-flexbox-vs-css-grid.png?w=420",
+      "alt": "When To Use Flexbox And When To Use CSS Grid",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2020/02/leonardomaldonado.jpg?w=150&h=150&crop=1",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2024/05/css-breakpoints-responsive-design.png?w=420",
+      "alt": "CSS Breakpoints For Responsive Design",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2020/12/rob-oleary.png?w=128&h=128&crop=1",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2023/03/use-forwardref-react.png?w=420",
+      "alt": "How To Use ForwardRef In React",
+      "caption": ""
+    },
+    {
+      "src": "https://blog.logrocket.com/wp-content/uploads/2019/04/peterekeneeze.jpg?w=150&h=150&crop=1",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/b982a50996ab36153089fddd4c1dbda9f483cc54b9b86b2683ca1600cc53e729?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/67aac3dcb47ad5fb92f126e3c028689e438d0e3f79639c3fdea89f8b5fedffc8?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/67aac3dcb47ad5fb92f126e3c028689e438d0e3f79639c3fdea89f8b5fedffc8?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/6952fffd408486df024f908f4374daa164d413b76ccd91eae0d645ba6ff111b3?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/8eb56dd62f4da0bd705bc17138b2e6094a955aee0e1b3aaef88058ff7413f9cd?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/186e15b0ca2d04aa63b4cb49cc3e5f623b924a7b532f5d14e5923b16f8413a89?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/53d967a1c715c526437f443bdaea8558a8d5fd0fe96335022a2349c2f386629a?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/a16399bd4a7bd90a6005b11dbb9d0275f10b93e337ee8c2bad23f89ee6babc66?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/0122b332d1d91a12f7bd12d836989b8702e4ed190b4752a4499f272fecacd58e?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/0552385ac2854bd21be255b1cc439b45c135e06414cc70bdcf08b178a6bd9aa5?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "src": "https://secure.gravatar.com/avatar/dbecd774e4ab62734177b6f25b386977bd41a30c1a39232052c49666c09ee9a8?s=36&d=mm&r=g",
+      "alt": "",
+      "caption": ""
+    }
+  ],
+  "fullContent": "srinivasa reddy says:\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\tNovember 24, 2021 at 12:43 pm\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\twell written.Thanks for clearly explaining\n\t\t\t\t\n\n\t\t\t\tReply",
+  "totalSections": 20,
+  "totalImages": 32,
+  "mainImage": {
+    "src": "https://blog.logrocket.com/wp-content/uploads/2021/10/Understanding-React-useEffect-cleanup-function-nocdn.png",
+    "alt": "Main/Featured Image",
+    "caption": "",
+    "type": "meta-tag"
+  }
+}
