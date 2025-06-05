@@ -11,11 +11,13 @@ RUN apk add --no-cache \
     ca-certificates \
     ttf-freefont \
     udev \
-    ttf-opensans
+    ttf-opensans \
+    dumb-init
 
 # Tell Puppeteer to skip installing Chromium. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+    NODE_OPTIONS="--max-old-space-size=4096"
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -42,6 +44,9 @@ RUN adduser -S nextjs -u 1001
 # Change ownership of the app directory
 RUN chown -R nextjs:nodejs /usr/src/app
 USER nextjs
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
 
 # Start the application
 CMD ["node", "index.js"] 

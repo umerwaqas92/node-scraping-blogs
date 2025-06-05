@@ -23,13 +23,31 @@ async function scrapeBlogPost(url) {
       '--no-first-run',
       '--no-zygote',
       '--single-process',
-      '--disable-gpu'
-    ]
+      '--disable-gpu',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-renderer-backgrounding',
+      '--disable-features=TranslateUI',
+      '--disable-ipc-flooding-protection',
+      '--disable-web-security',
+      '--disable-features=VizDisplayCompositor',
+      '--memory-pressure-off',
+      '--max_old_space_size=4096'
+    ],
+    timeout: 60000,
+    protocolTimeout: 60000
   });
   const page = await browser.newPage();
   
   try {
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    // Set a longer timeout and add error handling
+    await page.setDefaultTimeout(30000);
+    await page.setDefaultNavigationTimeout(30000);
+    
+    await page.goto(url, { 
+      waitUntil: 'networkidle2',
+      timeout: 30000
+    });
     
     // Extract blog data
     const blogData = await page.evaluate((url) => {
