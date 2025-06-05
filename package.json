@@ -1,16 +1,32 @@
 {
-  "name": "scraping-blogs",
+  "name": "blog-scraper-api",
   "version": "1.0.0",
+  "description": "A Node.js API for scraping blog posts with detailed content and image extraction",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "blog",
+    "scraper",
+    "api",
+    "puppeteer",
+    "express",
+    "web-scraping"
+  ],
   "author": "",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
   "dependencies": {
-    "axios": "^1.9.0",
-    "puppeteer": "^24.10.0",
-    "xml2js": "^0.6.2"
+    "express": "^4.18.2",
+    "puppeteer": "^21.5.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

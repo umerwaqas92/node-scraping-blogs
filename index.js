@@ -1,4 +1,16 @@
 const puppeteer = require('puppeteer');
+const express = require('express');
+const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 async function scrapeBlogPost(url) {
   const browser = await puppeteer.launch({ headless: true });
@@ -205,75 +217,164 @@ async function scrapeBlogPost(url) {
     
   } catch (error) {
     console.error('Error scraping blog post:', error);
-    return null;
+    throw error;
   } finally {
     await browser.close();
   }
 }
 
-// Example usage
-async function main() {
-  const url = 'https://theaestheticloft.blog/vintage-bedroom-cabinet-3k5zj8xq2a/';
-  
-  console.log('Scraping blog post...');
-  const result = await scrapeBlogPost(url);
-  
-  if (result) {
-    console.log('='.repeat(60));
-    console.log('BLOG POST ANALYSIS');
-    console.log('='.repeat(60));
-    console.log('Title:', result.title);
-    console.log('Meta Description:', result.metaDescription);
+// API Routes
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Blog Scraper API is running!',
+    version: '1.0.0',
+    endpoints: {
+      'GET /': 'API health check',
+      'POST /scrape': 'Scrape a blog post by URL',
+      'GET /scrape/:encodedUrl': 'Scrape a blog post by URL (GET method)'
+    }
+  });
+});
+
+// Scrape blog post endpoint (POST)
+app.post('/scrape', async (req, res) => {
+  try {
+    const { url } = req.body;
     
-    // Display main/banner image
-    if (result.mainImage) {
-      console.log('\n🖼️  MAIN/BANNER IMAGE:');
-      console.log(`   Alt Text: ${result.mainImage.alt}`);
-      console.log(`   URL: ${result.mainImage.src}`);
-      console.log(`   Type: ${result.mainImage.type}`);
-      if (result.mainImage.caption) {
-        console.log(`   Caption: ${result.mainImage.caption}`);
-      }
-    } else {
-      console.log('\n🖼️  MAIN/BANNER IMAGE: Not found');
+    if (!url) {
+      return res.status(400).json({
+        error: 'URL is required',
+        message: 'Please provide a URL in the request body'
+      });
     }
     
-    console.log('\nTotal Sections:', result.totalSections);
-    console.log('Total Images:', result.totalImages);
-    console.log('='.repeat(60));
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch (error) {
+      return res.status(400).json({
+        error: 'Invalid URL format',
+        message: 'Please provide a valid URL'
+      });
+    }
     
-    // Display each section
-    result.sections.forEach((section, index) => {
-      console.log(`\n📝 SECTION ${index + 1}: ${section.title}`);
-      console.log(`Heading Level: ${section.headingLevel}`);
-      console.log(`Content: ${section.content.substring(0, 200)}${section.content.length > 200 ? '...' : ''}`);
+    console.log(`Scraping blog post: ${url}`);
+    const result = await scrapeBlogPost(url);
+    
+    if (result) {
+      // Optionally save to file with timestamp
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const filename = `scrape-result-${timestamp}.json`;
       
-      if (section.images.length > 0) {
-        console.log(`🖼️  Images in this section (${section.images.length}):`);
-        section.images.forEach((img, imgIndex) => {
-          console.log(`   ${imgIndex + 1}. ${img.alt || 'No alt text'}`);
-          console.log(`      URL: ${img.src}`);
-          if (img.caption) console.log(`      Caption: ${img.caption}`);
-        });
-      } else {
-        console.log('🖼️  No images in this section');
+      // Create results directory if it doesn't exist
+      const resultsDir = path.join(__dirname, 'results');
+      if (!fs.existsSync(resultsDir)) {
+        fs.mkdirSync(resultsDir);
       }
-      console.log('-'.repeat(40));
+      
+      fs.writeFileSync(path.join(resultsDir, filename), JSON.stringify(result, null, 2));
+      
+      res.json({
+        success: true,
+        data: result,
+        savedTo: filename,
+        scrapedAt: new Date().toISOString()
+      });
+    } else {
+      res.status(500).json({
+        error: 'Scraping failed',
+        message: 'Unable to scrape the provided URL'
+      });
+    }
+    
+  } catch (error) {
+    console.error('API Error:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      message: error.message
     });
-    
-    console.log('\n📊 SUMMARY:');
-    console.log(`- ${result.totalSections} sections extracted`);
-    console.log(`- ${result.totalImages} total images found`);
-    console.log(`- ${result.sections.filter(s => s.images.length > 0).length} sections with images`);
-    
-    // Save full result to JSON file for detailed analysis
-    console.log('\n💾 Full result saved to result.json');
-    require('fs').writeFileSync('result.json', JSON.stringify(result, null, 2));
-    
-  } else {
-    console.log('Failed to scrape the blog post');
   }
-}
+});
 
-// Run the scraper
-main().catch(console.error);
+// Scrape blog post endpoint (GET) - URL encoded in path
+app.get('/scrape/:encodedUrl', async (req, res) => {
+  try {
+    const { encodedUrl } = req.params;
+    
+    if (!encodedUrl) {
+      return res.status(400).json({
+        error: 'URL is required',
+        message: 'Please provide a URL in the path'
+      });
+    }
+    
+    // Decode the URL
+    const url = decodeURIComponent(encodedUrl);
+    
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch (error) {
+      return res.status(400).json({
+        error: 'Invalid URL format',
+        message: 'Please provide a valid URL'
+      });
+    }
+    
+    console.log(`Scraping blog post: ${url}`);
+    const result = await scrapeBlogPost(url);
+    
+    if (result) {
+      res.json({
+        success: true,
+        data: result,
+        scrapedAt: new Date().toISOString()
+      });
+    } else {
+      res.status(500).json({
+        error: 'Scraping failed',
+        message: 'Unable to scrape the provided URL'
+      });
+    }
+    
+  } catch (error) {
+    console.error('API Error:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({
+    error: 'Internal server error',
+    message: 'Something went wrong!'
+  });
+});
+
+// 404 handler
+app.use('*', (req, res) => {
+  res.status(404).json({
+    error: 'Not found',
+    message: 'The requested endpoint does not exist'
+  });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`🚀 Blog Scraper API is running on port ${PORT}`);
+  console.log(`📖 API Documentation:`);
+  console.log(`   GET  http://localhost:${PORT}/                    - Health check`);
+  console.log(`   POST http://localhost:${PORT}/scrape             - Scrape blog post`);
+  console.log(`   GET  http://localhost:${PORT}/scrape/<encoded-url> - Scrape blog post (GET)`);
+  console.log(`\n📝 Example usage:`);
+  console.log(`   curl -X POST http://localhost:${PORT}/scrape -H "Content-Type: application/json" -d '{"url":"https://example.com/blog-post"}'`);
+  console.log(`   curl http://localhost:${PORT}/scrape/https%3A%2F%2Fexample.com%2Fblog-post`);
+});
+
+module.exports = app;
